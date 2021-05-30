@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import Style from 'style-it';
+import { sliderCss } from '../css/slider-css.js'
 
 export default class RangeSlider extends Component {
 
@@ -6,7 +8,7 @@ export default class RangeSlider extends Component {
         if (sliderName === 'day') {
             this.props.reactChange({
                 day: +sliderValue,
-            })
+            }) 
         }
 
         if (sliderName === 'time') {
@@ -19,37 +21,34 @@ export default class RangeSlider extends Component {
         }
     }
 
-    rangerStyle = {
-        display: 'block',
-        width : '90%',
-        maxWidth : '640px',
-        margin: '1rem auto',
-    }
-
     render(){
         const {  state: { day, hour, minute } } = this.props;
-        return(
-            <span>
-                <input
-                    style={this.rangerStyle}
-                    type="range"
-                    name="day"
-                    min="1"
-                    max="31"
-                    onChange={ (e) => this.ranger(e.target) }
-                    value={ day }
-                />
-                <input
-                    style={this.rangerStyle}
-                    type="range"
-                    name="time"
-                    min="12"
-                    max={ 16 * 60 - 3 }
-                    step="15"
-                    onChange={ (e) => this.ranger(e.target) }
-                    value={ Number(hour) * 60 - 7 * 60 + Number(minute) }
-                />
-            </span>
+        return Style.it( sliderCss(day, hour, minute),
+            <div className="sliders-container" >
+                <div className="slide-container">
+                    <input
+                        className="slider slider-day"
+                        type="range"
+                        name="day"
+                        min="1"
+                        max="31"
+                        onChange={ (e) => this.ranger(e.target) }
+                        value={ day }
+                    />
+                </div>
+                <div className="slide-container">
+                    <input
+                        className="slider slider-hour"
+                        type="range"
+                        name="time"
+                        min="12"
+                        max={ 16 * 60 - 3 }
+                        step="15"
+                        onChange={ (e) => this.ranger(e.target) }
+                        value={ Number(hour) * 60 - 7 * 60 + Number(minute) }
+                    />
+                </div>
+            </div>
         )
     }
 }

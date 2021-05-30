@@ -52,15 +52,15 @@ export default class App extends Component {
                 <div className="center_webcam">
                     <div className="header"><b>Kamera - měsíční historie</b></div>
                     <RangeSlider state={ this.state } reactChange={this.reactChange} />
-                    <div style={{ display: "inline-block" }}>
-                        <SelectTime       day={day} hour={hour} minute={minute} reactChange={this.reactChange}/>
-                        <WebCamSlideShow  state={ this.state } reactChange={this.reactChange} />
-                    </div>
+                    <WebCamSlideShow  state={ this.state } reactChange={this.reactChange} />
                     <ShowWebCam
                         webCamImgSrc  = { `${imgPath}/kamera/archive/ip_kamera_${path()}.jpg` }
                         webCamImgHref = { `${imgPath}/kamera/archive/ip_kamera_full_hd_${path()}.jpg` }
                     /> 
-                    Build with React
+                    <div>
+                        <SelectTime       day={day} hour={hour} minute={minute} reactChange={this.reactChange}/>
+
+                    </div>
                 </div>
                 <Bottom/>
             </div>
