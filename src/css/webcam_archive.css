@@ -1,13 +1,10 @@
-input[type=text], textarea[type=text], select, input[type=submit] {
-	padding: 2px 5px;
-	margin: 2px 5px;
-	border: 3px solid #ccc;
-	-webkit-transition: 0.5s;
-	transition: 0.5s;
-	outline: none;
-  }
+.webcam-container {
+	position: relative;
+	max-width: 640px;
+	margin: auto;
+}
   
-  .center_webcam{
+.center_webcam{
 	text-align : center;
     margin: 0 auto;
 	background : black;
@@ -17,11 +14,9 @@ input[type=text], textarea[type=text], select, input[type=submit] {
 .archive_cam {
 	margin: 1rem auto;
 	background : black;
-  }
+}
 
-  .archive_cam img{
+.archive_cam img{
 	width: 100%;
 	max-width: 640px;
-  }
-
-
+}

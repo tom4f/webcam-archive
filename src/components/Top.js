@@ -1,12 +1,9 @@
-import React from 'react';
-import mainImg              from '../images/main.jpg';
-import GoogleAd             from './GoogleAd';
+import mainImg  from '../images/main.jpg';
+import GoogleAd from './GoogleAd';
 
-const Top = () => {
-
+export const Top = () => {
     return ( 
-
-        <span>
+        <>
             <div className="header">
                 <a className="menu" href="../index.php" target="_top">Start</a> | 
                 <a className="menu" href="../rekreace.php" target="_top"> Apartmány</a> | 
@@ -28,11 +25,8 @@ const Top = () => {
                 <a className="menu" href="../windsms/" target="_top"> MeteoAlarm</a> | 
                 <a className="menu" href="../../4f/" target="_top"> Windsurfing</a>
             </div>
+
             <GoogleAd />
-        </span>
-
-
-
+        </>
     );
 }
-export default Top;

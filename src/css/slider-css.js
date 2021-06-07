@@ -1,4 +1,3 @@
-
 const svgEncoded = (sliderText) => {
     
     const svgOrig = `
@@ -27,16 +26,24 @@ const svgEncoded = (sliderText) => {
 
 } 
 
+
 export const sliderCss = (day, hour, minute) => {
 
-    const dayOfMonthToday = new Date().getDate()
-    const monthToday = 1 + new Date().getMonth()
+    const now = new Date()
+    const monthToday = now.getMonth() + 1
 
-    day = +day <= dayOfMonthToday ? `${day}.${monthToday}.` : `${day}.${monthToday - 1}.`
+    const dateFromSlider = new Date()
+    dateFromSlider.setDate(day)
+    dateFromSlider.setHours(hour, minute)
+
+    const sliderDate = now > dateFromSlider ? `${day}.${monthToday}.` : `${day}.${monthToday - 1}.`
 
     return `
         .sliders-container{
-            margin: 10px 0;
+            margin: auto;
+            position: absolute;
+            width: 100%;
+            bottom: 10px;
         }
 
         .slide-container{
@@ -105,7 +112,7 @@ export const sliderCss = (day, hour, minute) => {
 
 
         .slider-day::-webkit-slider-thumb {
-            background-image: url("data:image/svg+xml, ${svgEncoded(day)} ");
+            background-image: url("data:image/svg+xml, ${svgEncoded(sliderDate)} ");
         }
         .slider-day::-webkit-slider-thumb:hover {
             opacity: 1;
@@ -113,12 +120,11 @@ export const sliderCss = (day, hour, minute) => {
 
 
         .slider-day::-moz-range-thumb {
-            background-image: url("data:image/svg+xml, ${svgEncoded(day)} ");
+            background-image: url("data:image/svg+xml, ${svgEncoded(sliderDate)} ");
         }
         .slider-day::-moz-range-thumb:hover {
             opacity: 1;
         }
-
 
 
         .slider-hour::-webkit-slider-thumb {

@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import {Component} from 'react';
 import Style from 'style-it';
 import { sliderCss } from '../css/slider-css.js'
 
@@ -12,8 +12,8 @@ export default class RangeSlider extends Component {
         }
 
         if (sliderName === 'time') {
-            const hourSelected   = 7 + Math.floor(sliderValue / 60);
-            const minuteSelected = sliderValue  - 60 * Math.floor(sliderValue / 60) ;
+            const hourSelected   = Math.floor(sliderValue / 60);
+            const minuteSelected = sliderValue - hourSelected * 60 ;
             this.props.reactChange({
                 hour :   hourSelected,
                 minute : minuteSelected
@@ -41,11 +41,11 @@ export default class RangeSlider extends Component {
                         className="slider slider-hour"
                         type="range"
                         name="time"
-                        min="12"
-                        max={ 16 * 60 - 3 }
+                        min={ 7 *60 + 12 }
+                        max={ 22*60 + 57  }
                         step="15"
                         onChange={ (e) => this.ranger(e.target) }
-                        value={ Number(hour) * 60 - 7 * 60 + Number(minute) }
+                        value={ hour * 60 + minute }
                     />
                 </div>
             </div>

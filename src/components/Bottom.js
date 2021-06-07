@@ -1,9 +1,7 @@
-import React from 'react';
-
-const Bottom = () => {
+export const Bottom = () => {
 
     return ( 
-        <span>
+        <>
             {/* Google search */}
             <div className="gcse-searchbox-only"></div>
             <div className="header">
@@ -21,7 +19,6 @@ const Bottom = () => {
                     <img src="https://toplist.cz/count.asp?id=6477&logo=bc" border="0" alt="TOPlist" width="88" height="120"/>
                 </a>
             </div>
-        </span>
+        </>
     );
 }
-export default Bottom;

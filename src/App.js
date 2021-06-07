@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
-import './css/main.css';
-import './css/webcam_archive.css';
-import Top                  from './components/Top';
-import Bottom               from './components/Bottom';
-import ShowWebCam           from './components/ShowWebCam';
-import SelectTime           from './components/SelectTime';
+import { Top }              from './components/Top';
+import { Bottom }           from './components/Bottom';
+import { ShowWebCam }       from './components/ShowWebCam';
 import WebCamSlideShow      from './components/WebCamSlideShow';
 import RangeSlider          from './components/RangeSlider';
-import { imgPath }          from './components/apiPath.js'
+//import SelectTime         from './components/SelectTime';
+
+import './css/main.css';
+import './css/webcam_archive.css';
 
 export default class App extends Component {
     // MOUNTING : 1st live cycle method = constructor()
@@ -44,24 +44,19 @@ export default class App extends Component {
     // UPDATING : 3rd live cycle method = render() -> will be always called
     render(){
         // descructing states, e.g. this.state.allEntrie -> allEntries
-        const { day, hour, minute } = this.state;
-        const path = () => `${('0' + day).slice(-2)}-${('0' + hour).slice(-2)}-${('0' + minute).slice(-2)}`;
         return (
             <div className="top_container">
                 <Top/>
-                <div className="center_webcam">
-                    <div className="header"><b>Kamera - měsíční historie</b></div>
-                    <RangeSlider state={ this.state } reactChange={this.reactChange} />
-                    <WebCamSlideShow  state={ this.state } reactChange={this.reactChange} />
-                    <ShowWebCam
-                        webCamImgSrc  = { `${imgPath}/kamera/archive/ip_kamera_${path()}.jpg` }
-                        webCamImgHref = { `${imgPath}/kamera/archive/ip_kamera_full_hd_${path()}.jpg` }
-                    /> 
-                    <div>
-                        <SelectTime       day={day} hour={hour} minute={minute} reactChange={this.reactChange}/>
 
-                    </div>
+                <div className="header"><b>Kamera - měsíční historie</b></div>
+
+                <div className="webcam-container">
+                    <WebCamSlideShow state={ this.state } reactChange={this.reactChange} />
+                    <RangeSlider     state={ this.state } reactChange={this.reactChange} />
+                    <ShowWebCam      state={ this.state } /> 
                 </div>
+                {/* <SelectTime       day={day} hour={hour} minute={minute} reactChange={this.reactChange}/> */}
+
                 <Bottom/>
             </div>
         ) // return end
