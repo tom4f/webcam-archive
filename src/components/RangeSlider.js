@@ -1,10 +1,12 @@
 import {Component} from 'react';
 import Style from 'style-it';
-import { sliderCss } from '../css/slider-css.js'
+import '../css/slider.css'
+import { sliderDynamicCss } from '../css/slider-dynamic-css.js'
 
 export default class RangeSlider extends Component {
 
     ranger = ( { name: sliderName, value: sliderValue} ) => {
+        
         if (sliderName === 'day') {
             this.props.reactChange({
                 day: +sliderValue,
@@ -23,7 +25,7 @@ export default class RangeSlider extends Component {
 
     render(){
         const {  state: { day, hour, minute } } = this.props;
-        return Style.it( sliderCss(day, hour, minute),
+        return Style.it( sliderDynamicCss(day, hour, minute),
             <div className="sliders-container" >
                 <div className="slide-container">
                     <input
@@ -41,8 +43,8 @@ export default class RangeSlider extends Component {
                         className="slider slider-hour"
                         type="range"
                         name="time"
-                        min={ 7 *60 + 12 }
-                        max={ 22*60 + 57  }
+                        min={  7 * 60 + 12 }
+                        max={ 22 * 60 + 57  }
                         step="15"
                         onChange={ (e) => this.ranger(e.target) }
                         value={ hour * 60 + minute }

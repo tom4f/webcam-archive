@@ -7,7 +7,7 @@ import RangeSlider          from './components/RangeSlider';
 //import SelectTime         from './components/SelectTime';
 
 import './css/main.css';
-import './css/webcam_archive.css';
+import './css/webcam-archive.css';
 
 export default class App extends Component {
     // MOUNTING : 1st live cycle method = constructor()
