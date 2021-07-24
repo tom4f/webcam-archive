@@ -3,11 +3,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlayCircle, faStopCircle } from '@fortawesome/free-solid-svg-icons'
 import '../css/WebCamSlideShow.css'
 
-
-const WebCamSlideShow = ( { state: { day, hour, minute, timer}, reactChange } ) => {
+export const WebCamSlideShow = ( { state: { day, hour, minute, timer }, reactChange } ) => {
     const [startButton, setStartButton] = useState(true)
 
-    const startShow = () =>{
+    const startShow = () => {
 
         const Presentation = () => {
 
@@ -19,7 +18,6 @@ const WebCamSlideShow = ( { state: { day, hour, minute, timer}, reactChange } ) 
                 if (day < 31)    return day++
                 day = 1
             }
-
             add15minutes()
 
             reactChange({
@@ -27,20 +25,22 @@ const WebCamSlideShow = ( { state: { day, hour, minute, timer}, reactChange } ) 
                 hour,
                 minute
             });
-        };
+        }
 
         timer = setInterval(Presentation, 2000);
         reactChange({
-            timer: timer
+            timer: timer,
+            isLiveImg: false
         })
 
         setStartButton( prev => !prev );
-    };
+    }
 
     const stopShow = () =>{
         clearInterval(timer);
         setStartButton( prev => !prev );
-    };
+        reactChange( { isLiveImg: true } )
+    }
 
     return (
         <div>
@@ -50,5 +50,3 @@ const WebCamSlideShow = ( { state: { day, hour, minute, timer}, reactChange } ) 
         </div>
     )
 }
-
-export default WebCamSlideShow;

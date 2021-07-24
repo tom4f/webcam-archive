@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Top }              from './components/Top';
 import { Bottom }           from './components/Bottom';
 import { ShowWebCam }       from './components/ShowWebCam';
-import WebCamSlideShow      from './components/WebCamSlideShow';
+import { WebCamSlideShow }  from './components/WebCamSlideShow';
 import RangeSlider          from './components/RangeSlider';
 //import SelectTime         from './components/SelectTime';
 
@@ -15,12 +15,14 @@ export default class App extends Component {
         super(props);
         // initial states
         this.state = {
-            day:      new Date().getDate(),
-            hour:     7,
-            minute:   12,
-            slideId:  0,
-            timer :   0,
-            webAuthor :   'empty'
+            day         : new Date().getDate(),
+            hour        : 7,
+            minute      : 12,
+            slideId     : 0,
+            timer       : 0,
+            liveImgTimer: 0,
+            isLiveImg   : true,
+            webAuthor   : 'empty'
         };
     }
 
@@ -53,7 +55,7 @@ export default class App extends Component {
                 <div className="webcam-container">
                     <WebCamSlideShow state={ this.state } reactChange={this.reactChange} />
                     <RangeSlider     state={ this.state } reactChange={this.reactChange} />
-                    <ShowWebCam      state={ this.state } /> 
+                    <ShowWebCam      state={ this.state } reactChange={this.reactChange} /> 
                 </div>
                 {/* <SelectTime       day={day} hour={hour} minute={minute} reactChange={this.reactChange}/> */}
 

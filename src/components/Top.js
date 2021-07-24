@@ -21,7 +21,7 @@ export const Top = () => {
                 <a className="menu" href="../webcam-archive/" target="_top">Kamera</a> | 
                 <a className="menu" href="../meteo/" target="_top"> Meteostanice</a> | 
                 <a className="menu" href="../forum/" target="_top"> Fórum</a> | 
-                <a className="menu" href="../fotogalerie.html" target="_top"> Fotogalerie</a> | 
+                <a className="menu" href="../photo-gallery/" target="_top"> Fotogalerie</a> | 
                 <a className="menu" href="../windsms/" target="_top"> MeteoAlarm</a> | 
                 <a className="menu" href="../../4f/" target="_top"> Windsurfing</a>
             </div>

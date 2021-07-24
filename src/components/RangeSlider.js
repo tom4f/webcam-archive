@@ -10,6 +10,7 @@ export default class RangeSlider extends Component {
         if (sliderName === 'day') {
             this.props.reactChange({
                 day: +sliderValue,
+                isLiveImg: false,
             }) 
         }
 
@@ -18,13 +19,14 @@ export default class RangeSlider extends Component {
             const minuteSelected = sliderValue - hourSelected * 60 ;
             this.props.reactChange({
                 hour :   hourSelected,
-                minute : minuteSelected
+                minute : minuteSelected,
+                isLiveImg: false,
             })
         }
     }
 
     render(){
-        const {  state: { day, hour, minute } } = this.props;
+        const { state: { day, hour, minute } } = this.props;
         return Style.it( sliderDynamicCss(day, hour, minute),
             <div className="sliders-container" >
                 <div className="slide-container">
