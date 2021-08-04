@@ -1,5 +1,7 @@
 * {
-    box-sizing: border-box;
+	/* why this must be disabled?
+	Othervise FontAwesone icons have whong size... */
+    /* box-sizing: border-box; */
     margin: 0;
     padding: 0;
 

@@ -3,7 +3,11 @@ import { Top }              from './components/Top';
 import { Bottom }           from './components/Bottom';
 import { ShowWebCam }       from './components/ShowWebCam';
 import { WebCamSlideShow }  from './components/WebCamSlideShow';
+import { MeteoBarSmall }    from './components/MeteoBarSmall';
+import { MeteoBarBig }      from './components/MeteoBarBig';
 import RangeSlider          from './components/RangeSlider';
+import { Forum }            from './components/Forum';
+import PhotoGallery         from './components/PhotoGallery/index.tsx'
 //import SelectTime         from './components/SelectTime';
 
 import './css/main.css';
@@ -49,14 +53,16 @@ export default class App extends Component {
         return (
             <div className="top_container">
                 <Top/>
-
                 <div className="header"><b>Kamera - měsíční historie</b></div>
-
                 <div className="webcam-container">
                     <WebCamSlideShow state={ this.state } reactChange={this.reactChange} />
                     <RangeSlider     state={ this.state } reactChange={this.reactChange} />
-                    <ShowWebCam      state={ this.state } reactChange={this.reactChange} /> 
+                    <ShowWebCam      state={ this.state } reactChange={this.reactChange} />
+                    <MeteoBarSmall /> 
                 </div>
+                <MeteoBarBig />
+                <Forum />
+                <PhotoGallery />
                 {/* <SelectTime       day={day} hour={hour} minute={minute} reactChange={this.reactChange}/> */}
 
                 <Bottom/>
