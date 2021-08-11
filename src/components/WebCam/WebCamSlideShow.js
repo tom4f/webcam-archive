@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlayCircle, faStopCircle } from '@fortawesome/free-solid-svg-icons'
-import '../css/WebCamSlideShow.css'
+import './css/WebCamSlideShow.css'
 
 export const WebCamSlideShow = ( { state: { day, hour, minute, timer }, reactChange } ) => {
     const [startButton, setStartButton] = useState(true)
@@ -45,8 +45,8 @@ export const WebCamSlideShow = ( { state: { day, hour, minute, timer }, reactCha
     return (
         <div>
              { startButton
-                ? <FontAwesomeIcon className="slide-show" size="4x" icon={ faPlayCircle } onClick={ () => startShow() } />
-                : <FontAwesomeIcon className="slide-show" size="4x" icon={ faStopCircle } onClick={ () => stopShow()  }/> }
+                ? <FontAwesomeIcon className="slide-show" size="3x" icon={ faPlayCircle } onClick={ () => startShow() }/>
+                : <FontAwesomeIcon className="slide-show" size="3x" icon={ faStopCircle } onClick={ () => stopShow()  }/> }
         </div>
     )
 }

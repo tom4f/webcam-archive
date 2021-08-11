@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
-import { serverPath } from './serverPath'
-import './../css/MeteoBarBig.css'
+import { serverPath } from './../../api/serverPath'
+import './css/MeteoBarBig.css'
 
 export const MeteoBarBig = () => {
 
@@ -180,7 +180,9 @@ export const MeteoBarBig = () => {
 
     return (
         <>
-            <div className="header"><b>METEOSTANICE dnes</b></div>
+            <div className="header">
+                <a className="menu" href="./meteo/" >METEOSTANICE dnes</a>
+            </div>
             { meteoTable( ...meteoData ) }
         </>
     )

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { imgFolder } from './api/read'
+import { imgFolder } from './../../api/photoGalleryPath'
 import './css/BigImages.css'
 import { CategoryList } from './CategoryList'
 import { photoType, imgPositionType, setStateType, categoryObjType } from './TypeDefinition';
@@ -27,7 +27,6 @@ export const BigImage = ( {bigPhoto, imgPosition, setImgPosition, categoryObj, l
         if ( !mainRef.current.style.backgroundImage ) return
         const url = mainRef.current.style.backgroundImage.split("\"")[1]
         const img = new Image();
-        console.log( {url} )
         img.src = url;
         img.onload = () => {
             if ( !mainRef.current ) return
@@ -40,8 +39,9 @@ export const BigImage = ( {bigPhoto, imgPosition, setImgPosition, categoryObj, l
 
     useEffect( () => {
             setFadeIn('main-img fade-in')
-            setTimeout( () => setFadeIn('main-img'), 500  )
+            const timeout = setTimeout( () => setFadeIn('main-img'), 500  )
             imgSizeHandler()
+            return () => clearTimeout(timeout)
     }, [bigPhoto])
 
     useEffect( () => {

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
-import { serverPath } from './serverPath'
-import './../css/forum.css'
+import { serverPath } from './../../api/serverPath'
+import './css/forum.css'
 
 export const Forum = () => {
     const [ items, setItems ] = useState( [] )
@@ -34,8 +34,8 @@ export const Forum = () => {
             knihaUL.push(
                 <li key={id}>
                     {day}.{month}.{year}
-                    &nbsp;<b><i>{ email ? <a href={mailto}>{jmeno}</a> : {jmeno} }</i></b>
-                    &nbsp;{ text.slice(0,85) }
+                    &nbsp;<b><i>{ email ? <a href={mailto}>{jmeno}</a> : <>{jmeno}</> }</i></b>
+                    &nbsp;{ text.slice(0,80) }
                 </li>)
         });
         return knihaUL
@@ -45,7 +45,10 @@ export const Forum = () => {
     
     return (
         <>
-            <div className="header"><b>LIPNO FÓRUM</b></div>
+            <div className="header">
+                <a className="menu" href="./forum/" >LIPNO FÓRUM</a>
+            </div>
+
             <section className="kniha-main-page">
                 <ul>
                     { showForum() }

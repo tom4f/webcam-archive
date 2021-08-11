@@ -1,4 +1,4 @@
-import { imgFolder } from './api/read'
+import { imgFolder } from './../../api/photoGalleryPath'
 import './css/SmallImages.css'
 import { photoType, imgPositionType, setStateType } from './TypeDefinition';
 

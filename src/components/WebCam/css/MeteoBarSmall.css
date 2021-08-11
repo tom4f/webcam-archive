@@ -6,20 +6,20 @@
     background-color: rgba(0, 0, 0, 0.4);
     left: 50%;
     transition: bottom 2s, color 2s, transform 2s;
-    bottom: 10%;
+    bottom: 13%;
     transform: translate(-50%, -50%);
     color: white;
     white-space: nowrap;
     border-radius: 8px;
+    padding: 0px 5px;
   }
   
   .meteo_box fieldset {
     font-size: 10px;
     width: auto;
     display: inline;
-    padding: 3px;
-    margin-top: 5px;
-    margin-bottom: 5px;
+    padding: 1px 3px;
+    margin-right: 1px;
     border: 2px solid green;
     border-radius: 8px;
   }

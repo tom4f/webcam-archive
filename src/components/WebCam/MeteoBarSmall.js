@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import '../css/MeteoBarSmall.css'
+import './css/MeteoBarSmall.css'
 
 export const MeteoBarSmall = () => {
 
@@ -58,11 +58,10 @@ export const MeteoBarSmall = () => {
         setMetoText( old => {
             if (old !== getTxt) {
                 setCssTransitionOut('meteo_box_transition_out')
-                setTimeout( () => setCssTransitionOut(''), 2000 )
+                //setTimeout( () => setCssTransitionOut(''), 2000 )
             }
             return getTxt
         }) 
-
     }
 
     useEffect( () => {      
@@ -70,6 +69,11 @@ export const MeteoBarSmall = () => {
         const timer = setInterval( () => asyncFunction(), 10000)
         return () => clearInterval(timer)
     }, [])
+
+    useEffect( () => {
+        const timeout = setTimeout( () => setCssTransitionOut(''), 2000 )
+        return () => clearTimeout(timeout)
+    }, [cssTransitionOut] )
 
     return (
         <div className={`meteo_box ${cssTransitionOut}`}>{ meteoBox(meteoText) }</div>

@@ -1,7 +1,7 @@
 import {Component} from 'react';
 import Style from 'style-it';
-import '../css/slider.css'
-import { sliderDynamicCss } from '../css/slider-dynamic-css.js'
+import './css/slider.css'
+import { sliderDynamicCss } from './css/slider-dynamic-css.js'
 
 export default class RangeSlider extends Component {
 

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { serverPath } from './serverPath.js'
+import { serverPath } from '../../api/serverPath.js'
 
 export const ShowWebCam = ( { state: {day, hour, minute, isLiveImg} } ) => {
 
@@ -18,7 +18,8 @@ export const ShowWebCam = ( { state: {day, hour, minute, isLiveImg} } ) => {
       setGetCamera( iFrameDiv )
     }
 
-    setInterval( () => updateImgLogic(), 5000)
+    const interval = setInterval( () => updateImgLogic(), 5000)
+    return () => clearInterval(interval)
 
   }
 

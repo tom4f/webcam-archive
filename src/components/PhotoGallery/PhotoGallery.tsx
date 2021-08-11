@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import './css/App.css';
-import { loadPicturesfromMySQL } from './api/read'
+import { loadPicturesfromMySQL } from './../../api/photoGalleryPath'
 import { SmallImages } from './SmallImages'
 import { BigImage } from './BigImage'
 import { photoType, categoryObjType } from './TypeDefinition';
@@ -34,6 +34,9 @@ export default function PhotoGallery() {
 
   return (
     <div className="container">
+      <div className="header">
+          <a className="menu" href="./photo-gallery/" >Fotogalerie</a>
+      </div>
       <SmallImages imgPosition={imgPosition} setImgPosition={setImgPosition} 
                    eightPhoto={ eightPhoto } arrIndexFromImgId={arrIndexFromImgId} />
       <BigImage imgPosition={imgPosition} setImgPosition={setImgPosition}
