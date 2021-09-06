@@ -8,7 +8,7 @@ export const Top = () => {
             <div className="header">
                 <a className="menu" href="./index.html" target="_top">Start</a> | 
                 <a className="menu" href="./rekreace.php" target="_top"> Apartmány</a> | 
-                <a className="menu" href="./formular.php" target="_top"> Objednávka</a> | 
+                <a className="menu" href="./booking-form/" target="_top"> Objednávka</a> | 
                 <a className="menu" href="./ceny.php" target="_top"> Ceny</a> | 
                 <a className="menu" href="./kontakt.php" target="_top"> Kontakt</a> | 
                 <a className="menu" href="./frymburk.php" target="_top"> O Frymburku</a>

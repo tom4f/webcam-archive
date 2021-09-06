@@ -5,8 +5,8 @@ export const Bottom = () => {
     return ( 
         <>
             <div className="header">
-                (C)1998-2021
-                <a href="mailto:ubytovani@lipnonet.cz"> ubytovani@lipnonet.cz</a>
+                
+                <a href="https://tomas-blog.vercel.app/">© 1998-2021 Created by Tomáš Kučera</a>
                 <br/>
                 <a href="http://www.lipnonet.cz/">LIPNOnet.cz</a> | 
                 <a href="http://www.lipno.net/"> LIPNO.net</a> | 
