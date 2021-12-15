@@ -8,7 +8,7 @@ const serverPath = dev ? 'http://localhost/lipnonet/rekreace/api' : './api'
 //export const imgFolder = dev ? `http://localhost/lipnonet/rekreace/fotogalerie${fotoGalleryOwner}` : `./../fotogalerie${fotoGalleryOwner}`
 export const imgFolder = dev ? `http://localhost/lipnonet/rekreace/fotogalerie${fotoGalleryOwner}` : `./fotogalerie${fotoGalleryOwner}`
 
-export const loadPicturesfromMySQL = fetch( `${serverPath}/pdo_read_foto${fotoGalleryOwner}.php` )
+export const loadPicturesfromMySQL = fetch( `${serverPath}/pdo_read_foto.php?fotoGalleryOwner=${fotoGalleryOwner}` )
                                         .then(  response => response.json() )
                                         .catch( response => console.log( { response } ) )
 
