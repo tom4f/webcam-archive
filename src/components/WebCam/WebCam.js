@@ -44,7 +44,7 @@ export default class WebCam extends Component {
         // descructing states, e.g. this.state.allEntrie -> allEntries
         return (
             <>
-                <div className="header"><b>Kamera - měsíční historie</b></div>
+                <div className="header"><b><a href="https://www.ipcamlive.com/62d9a9a2cb1ff">Testujeme živé video --&gt; klikněte zde!</a></b></div>
                 <div className="webcam-container">
                     <WebCamSlideShow state={ this.state } reactChange={this.reactChange} />
                     <RangeSlider     state={ this.state } reactChange={this.reactChange} />

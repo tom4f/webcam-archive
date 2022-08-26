@@ -18,7 +18,7 @@ export const ShowWebCam = ( { state: {day, hour, minute, isLiveImg} } ) => {
       setGetCamera( iFrameDiv )
     }
 
-    const interval = setInterval( () => updateImgLogic(), 5000)
+    const interval = setInterval( () => updateImgLogic(), 10000)
     return () => clearInterval(interval)
 
   }
