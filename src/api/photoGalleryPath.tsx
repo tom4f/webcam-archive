@@ -3,14 +3,15 @@ const fotoGalleryOwner = window.location.search
     : '_ubytovani'
 
 const dev = process.env.NODE_ENV !== 'production'
-//const serverPath = dev ? 'http://localhost/lipnonet/rekreace/api' : './../api'
-const serverPath = dev ? 'http://localhost/lipnonet/rekreace/api' : './api'
-//const serverPath = dev ? 'https://www.frymburk.com/rekreace/api' : './api'
-//export const imgFolder = dev ? `http://localhost/lipnonet/rekreace/fotogalerie${fotoGalleryOwner}` : `./../fotogalerie${fotoGalleryOwner}`
-export const imgFolder = dev ? `http://localhost/lipnonet/rekreace/fotogalerie${fotoGalleryOwner}` : `./fotogalerie${fotoGalleryOwner}`
-//export const imgFolder = dev ? `https://www.frymburk.com/rekreace/fotogalerie${fotoGalleryOwner}` : `./fotogalerie${fotoGalleryOwner}`
 
-export const loadPicturesfromMySQL = fetch(`${serverPath}/pdo_read_foto.php?fotoGalleryOwner=${fotoGalleryOwner}`)
+// export const serverPath = dev ? 'http://localhost/lipnonet' : './..'
+// export const serverPath = dev ? 'http://localhost/lipnonet' : './..'
+export const serverPath = dev ? 'https://www.frymburk.com' : './..'
+
+
+export const imgFolder = dev ? `${serverPath}/rekreace/fotogalerie${fotoGalleryOwner}` : `./fotogalerie${fotoGalleryOwner}`
+
+export const loadPicturesfromMySQL = fetch(`${serverPath}/rekreace/api/pdo_read_foto.php?fotoGalleryOwner=${fotoGalleryOwner}`)
     .then(response => response.json())
     .catch(response => console.log({ response }))
 

@@ -3,19 +3,19 @@ import './css/MeteoBarSmall.css'
 
 export const MeteoBarSmall = () => {
 
-    const [ meteoText, setMetoText ] = useState( '' )
-    const [ cssTransitionOut, setCssTransitionOut ] = useState( 'meteo_box_transition_out' )
+    const [meteoText, setMetoText] = useState('')
+    const [cssTransitionOut, setCssTransitionOut] = useState('meteo_box_transition_out')
 
     const meteoBox = (meteoText) => {
 
-        if ( !meteoText ) return
+        if (!meteoText) return
 
         const [, date, time, temp, huminidy, presure, wind, dir, , dewPoint, windChill] = meteoText.split('|')
 
         return (
             <>
                 <fieldset className="meteo_value">
-                    <legend>{ ('0' + date).slice(-8).slice(0,6) }</legend>
+                    <legend>{('0' + date).slice(-8).slice(0, 6)}</legend>
                     {time}
                 </fieldset>
                 <fieldset className="meteo_value">
@@ -50,32 +50,32 @@ export const MeteoBarSmall = () => {
         )
     }
 
-    const asyncFunction = async() => {
-        const getTxt = await fetch( `./../davis/lipnonet_meteo.txt` )
-            .then( response => response.text() )
-            .catch( err => console.log( {err} ) )
-        
-        setMetoText( old => {
+    const asyncFunction = async () => {
+        const getTxt = await fetch(`./../davis/lipnonet_meteo.txt`)
+            .then(response => response.text())
+            .catch(err => console.log({ err }))
+
+        setMetoText(old => {
             if (old !== getTxt) {
                 setCssTransitionOut('meteo_box_transition_out')
                 //setTimeout( () => setCssTransitionOut(''), 2000 )
             }
             return getTxt
-        }) 
+        })
     }
 
-    useEffect( () => {      
+    useEffect(() => {
         asyncFunction()
-        const timer = setInterval( () => asyncFunction(), 10000)
+        const timer = setInterval(() => asyncFunction(), 10000)
         return () => clearInterval(timer)
     }, [])
 
-    useEffect( () => {
-        const timeout = setTimeout( () => setCssTransitionOut(''), 2000 )
+    useEffect(() => {
+        const timeout = setTimeout(() => setCssTransitionOut(''), 2000)
         return () => clearTimeout(timeout)
-    }, [cssTransitionOut] )
+    }, [cssTransitionOut])
 
     return (
-        <div className={`meteo_box ${cssTransitionOut}`}>{ meteoBox(meteoText) }</div>
+        <div className={`meteo_box ${cssTransitionOut}`}>{meteoBox(meteoText)}</div>
     )
 }

@@ -1,26 +1,26 @@
 import { useEffect, useState } from 'react'
-import { serverPath } from './../../api/serverPath'
+import { serverPath } from './../../api/photoGalleryPath'
 import './css/forum.css'
 
 export const Forum = () => {
-    const [ items, setItems ] = useState( [] )
+    const [items, setItems] = useState([])
 
     const loadForumShort = () => {
         let xhr = new XMLHttpRequest();
         xhr.open('POST', `${serverPath}/rekreace/api/pdo_read_forum.php`, true);
-        xhr.onload = function() {
+        xhr.onload = function () {
             if (this.readyState === 4 && this.status === 200) {
-                setItems( JSON.parse(this.responseText) );
+                setItems(JSON.parse(this.responseText));
             }
         }
         xhr.onerror = function () {
-            console.log( JSON.parse('{"status" : "ajax_failed"}') );
+            console.log(JSON.parse('{"status" : "ajax_failed"}'));
         }
         xhr.send(JSON.stringify(
             {
-            'start' : 0,
-            'limit' : 5,
-            'searchCriteria' : ''
+                'start': 0,
+                'limit': 5,
+                'searchCriteria': ''
             }
         ));
     }
@@ -29,20 +29,20 @@ export const Forum = () => {
         let knihaUL = []
         items.forEach(item => {
             const { id, datum, text, jmeno, email } = item;
-            const [ year, month, day ] = datum.split(' ')[0].split('-');
+            const [year, month, day] = datum.split(' ')[0].split('-');
             const mailto = `mailto:${email}`
             knihaUL.push(
                 <li key={id}>
                     {day}.{month}.{year}
-                    &nbsp;<b><i>{ email ? <a href={mailto}>{jmeno}</a> : <>{jmeno}</> }</i></b>
-                    &nbsp;{ text.slice(0,80) }
+                    &nbsp;<b><i>{email ? <a href={mailto}>{jmeno}</a> : <>{jmeno}</>}</i></b>
+                    &nbsp;{text.slice(0, 80)}
                 </li>)
         });
         return knihaUL
     }
 
-    useEffect( loadForumShort, [] )
-    
+    useEffect(loadForumShort, [])
+
     return (
         <>
             <div className="header">
@@ -51,7 +51,7 @@ export const Forum = () => {
 
             <section className="kniha-main-page">
                 <ul>
-                    { showForum() }
+                    {showForum()}
                 </ul>
             </section>
         </>
