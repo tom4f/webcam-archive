@@ -1,6 +1,4 @@
-const fotoGalleryOwner = window.location.search
-    ? window.location.search.split('?fotoGalleryOwner=')[1]
-    : '_ubytovani'
+const fotoGalleryOwner = window.location.search.split('?fotoGalleryOwner=')[1] || '_ubytovani'
 
 const dev = process.env.NODE_ENV !== 'production'
 
